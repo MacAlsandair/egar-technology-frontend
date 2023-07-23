@@ -6,7 +6,7 @@ import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 const routes: Routes = [
   {path: '', redirectTo: 'vehicle-list', pathMatch: 'full'},
   {path: 'vehicle-list', component: VehicleListComponent},
-  {path: 'update-vehicle', component: UpdateVehicleComponent},
+  {path: 'update-vehicle/:id', component: UpdateVehicleComponent},
   {path: '**', redirectTo: 'vehicle-list'}
 ];
 

@@ -4,6 +4,7 @@ import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Valid
 import { VehicleService } from '../vehicle.service';
 import { VehicleDTO } from '../vehicleDTO';
 import { Vehicle } from '../vehicle';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-update-vehicle',
@@ -13,29 +14,48 @@ import { Vehicle } from '../vehicle';
   styleUrls: ['./update-vehicle.component.scss']
 })
 export class UpdateVehicleComponent {
-  vehicle: Vehicle = {
-    id: 0,
+  vehicleId!: number;
+  vehicleDTO: VehicleDTO = {
     brand: '',
     model: '',
     category: '',
+    vehicleType: '',
     stateNumber: '',
     yearOfManufacture: 0,
-    hasTrailer: false,
-    vehicleType: ''
+    hasTrailer: false
   };
 
-  constructor(private vehicleService: VehicleService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private vehicleService: VehicleService
+  ) {}
 
-  ngOnInit() {
-    const vehicleId = 1; 
-    this.vehicleService.getVehicleById(vehicleId).subscribe((data: Vehicle) => {
-      this.vehicle = data;
+  ngOnInit(): void {
+    // const id = this.route.snapshot.paramMap.get('id');
+    // this.getVehicle(id);
+    this.route.params.subscribe(params => {
+      this.vehicleId = params['id'];
+      this.getVehicle(this.vehicleId);
     });
   }
 
-  onSubmit() {
-    this.vehicleService.updateVehicle(this.vehicle.id, this.vehicle).subscribe((data: Vehicle) => {
-      console.log('Vehicle updated successfully:', data);
+  getVehicle(id: number): void {
+    this.vehicleService.getVehicleById(id).subscribe(vehicle => {
+      this.vehicleDTO = {
+        brand: vehicle.brand,
+        model: vehicle.model,
+        category: vehicle.category,
+        stateNumber: vehicle.stateNumber,
+        vehicleType: vehicle.vehicleType,
+        yearOfManufacture: vehicle.yearOfManufacture,
+        hasTrailer: vehicle.hasTrailer
+      };
+    });
+  }
+
+  onSubmit(): void {
+    this.vehicleService.updateVehicle(this.vehicleId, this.vehicleDTO).subscribe(updatedVehicle => {
+      console.log('Vehicle updated successfully:', updatedVehicle);
     });
   }
 }
