@@ -8,8 +8,8 @@ const routes: Routes = [
   {path: '', redirectTo: 'vehicle-list', pathMatch: 'full'},
   {path: 'vehicle-list', component: VehicleListComponent},
   {path: 'update-vehicle/:id', component: UpdateVehicleComponent},
-  {path: '**', redirectTo: 'vehicle-list'},
   {path: 'create-vehicle', component: CreateVehicleComponent},
+  {path: '**', redirectTo: 'vehicle-list'},
 ];
 
 @NgModule({

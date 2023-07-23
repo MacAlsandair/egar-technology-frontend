@@ -33,6 +33,9 @@ export class CreateVehicleComponent {
 
     this.vehicleService.addVehicle(this.vehicleDTO).subscribe(createdVehicle => {
       console.log('Vehicle created successfully:', createdVehicle);
+    },
+    error => {
+      window.alert('Такой номер уже занят')
     });
   }
 }
