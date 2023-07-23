@@ -1,1 +1,13 @@
-<p>vehicle-list works!</p>
+<div *ngIf="vehicles && vehicles.length">
+  <h2>Vehicle List</h2>
+  <ul>
+    <li *ngFor="let vehicle of vehicles">
+      <h3>{{vehicle.brand}} {{vehicle.model}}</h3>
+      <p>Category: {{vehicle.category}}</p>
+      <p>State number: {{vehicle.stateNumber}}</p>
+      <p>Year of manufacture: {{vehicle.yearOfManufacture}}</p>
+      <p>Has trailer: {{vehicle.hasTrailer ? 'Yes' : 'No'}}</p>
+      <p>Vehicle type: {{vehicle.vehicleType}}</p>
+    </li>
+  </ul>
+</div>
