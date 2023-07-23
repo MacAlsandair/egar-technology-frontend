@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Vehicle } from './vehicle';
+import { VehicleDTO } from './vehicleDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +31,6 @@ export class VehicleService {
   }
 
   searchVehicles(vehicleDTO: VehicleDTO): Observable<VehicleDTO[]> {
-    return this.http.get<VehicleDTO[]>(`${this.baseUrl}/search`, { params: vehicleDTO });
+    return this.http.get<VehicleDTO[]>(`${this.baseUrl}/search`);
   }
 }
