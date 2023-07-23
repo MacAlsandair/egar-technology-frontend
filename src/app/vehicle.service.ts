@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Vehicle } from './vehicle';
 import { VehicleDTO } from './vehicleDTO';
+import { VehicleSearchCriteria } from './vehicleSearchCriteria';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,7 @@ export class VehicleService {
     return this.http.put<Vehicle>(`${this.baseUrl}/${id}`, vehicleDTO);
   }
 
-  searchVehicles(vehicleDTO: VehicleDTO): Observable<Vehicle[]> {
-    return this.http.post<Vehicle[]>(`${this.baseUrl}/search`, vehicleDTO);
+  searchVehicles(vehicleSearchCriteria: VehicleSearchCriteria): Observable<Vehicle[]> {
+    return this.http.post<Vehicle[]>(`${this.baseUrl}/search`, vehicleSearchCriteria);
   }
 }
