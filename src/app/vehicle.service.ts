@@ -30,7 +30,7 @@ export class VehicleService {
     return this.http.put<Vehicle>(`${this.baseUrl}/${id}`, vehicleDTO);
   }
 
-  searchVehicles(vehicleDTO: VehicleDTO): Observable<VehicleDTO[]> {
-    return this.http.get<VehicleDTO[]>(`${this.baseUrl}/search`);
+  searchVehicles(vehicleDTO: VehicleDTO): Observable<Vehicle[]> {
+    return this.http.post<Vehicle[]>(`${this.baseUrl}/search`, vehicleDTO);
   }
 }
