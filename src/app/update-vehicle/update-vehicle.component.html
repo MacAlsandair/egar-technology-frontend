@@ -1,0 +1,32 @@
+<h1>Update Vehicle</h1>
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="brand">Brand:</label>
+    <input type="text" id="brand" [(ngModel)]="vehicle.brand" name="brand" required>
+  </div>
+  <div>
+    <label for="model">Model:</label>
+    <input type="text" id="model" [(ngModel)]="vehicle.model" name="model" required>
+  </div>
+  <div>
+    <label for="category">Category:</label>
+    <input type="text" id="category" [(ngModel)]="vehicle.category" name="category" required>
+  </div>
+  <div>
+    <label for="stateNumber">State Number:</label>
+    <input type="text" id="stateNumber" [(ngModel)]="vehicle.stateNumber" name="stateNumber" required>
+  </div>
+  <div>
+    <label for="yearOfManufacture">Year of Manufacture:</label>
+    <input type="number" id="yearOfManufacture" [(ngModel)]="vehicle.yearOfManufacture" name="yearOfManufacture" required>
+  </div>
+  <div>
+    <label for="vehicleType">Vehicle Type:</label>
+    <input type="text" id="vehicleType" [(ngModel)]="vehicle.vehicleType" name="vehicleType" required>
+  </div>
+  <div>
+    <label for="hasTrailer">Has Trailer:</label>
+    <input type="checkbox" id="hasTrailer" [(ngModel)]="vehicle.hasTrailer" name="hasTrailer">
+  </div>
+  <button type="submit">Update</button>
+</form>
