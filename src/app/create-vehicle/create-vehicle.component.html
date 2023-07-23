@@ -1,1 +1,40 @@
-<p>create-vehicle works!</p>
+<div class="container">
+  <h1>Create Vehicle</h1>
+  <form (ngSubmit)="onSubmit()" class="mt-4">
+    <div class="mb-3">
+      <label for="brand" class="form-label">Brand:</label>
+      <input type="text" id="brand" [(ngModel)]="vehicleDTO.brand" name="brand" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="model" class="form-label">Model:</label>
+      <input type="text" id="model" [(ngModel)]="vehicleDTO.model" name="model" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="category" class="form-label">Category:</label>
+      <input type="text" id="category" [(ngModel)]="vehicleDTO.category" name="category" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="stateNumber" class="form-label">State Number:</label>
+      <input type="text" id="stateNumber" [(ngModel)]="vehicleDTO.stateNumber" name="stateNumber" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="yearOfManufacture" class="form-label">Year of Manufacture:</label>
+      <input type="number" id="yearOfManufacture" [(ngModel)]="vehicleDTO.yearOfManufacture" name="yearOfManufacture" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="vehicleType" class="form-label">Vehicle Type:</label>
+      <select id="vehicleType" [(ngModel)]="vehicleDTO.vehicleType" name="vehicleType" class="form-select" required>
+        <option value="truck">Truck</option>
+        <option value="car">Car</option>
+        <option value="bus">Bus</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <div class="form-check">
+        <input type="checkbox" id="hasTrailer" [(ngModel)]="vehicleDTO.hasTrailer" name="hasTrailer" class="form-check-input">
+        <label for="hasTrailer" class="form-check-label">Has Trailer</label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+</div>

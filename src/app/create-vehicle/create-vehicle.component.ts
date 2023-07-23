@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VehicleService } from '../vehicle.service';
 import { VehicleDTO } from '../vehicleDTO';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-create-vehicle',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './create-vehicle.component.html',
   styleUrls: ['./create-vehicle.component.scss']
 })
