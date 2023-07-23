@@ -6,4 +6,5 @@ export interface Vehicle {
   stateNumber: string;
   yearOfManufacture: number;
   hasTrailer: boolean;
+  vehicleType: string;
 }
