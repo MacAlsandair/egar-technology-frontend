@@ -4,7 +4,7 @@ import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Valid
 import { VehicleService } from '../vehicle.service';
 import { VehicleDTO } from '../vehicleDTO';
 import { Vehicle } from '../vehicle';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-vehicle',
@@ -27,7 +27,8 @@ export class UpdateVehicleComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private vehicleService: VehicleService
+    private vehicleService: VehicleService,
+    private routerForNavigation: Router
   ) {}
 
   ngOnInit(): void {
@@ -56,6 +57,11 @@ export class UpdateVehicleComponent {
   onSubmit(): void {
     this.vehicleService.updateVehicle(this.vehicleId, this.vehicleDTO).subscribe(updatedVehicle => {
       console.log('Vehicle updated successfully:', updatedVehicle);
+      this.routerForNavigation.navigateByUrl("/");
     });
+  }
+  
+  close(): void {
+    this.routerForNavigation.navigateByUrl("/");
   }
 }
