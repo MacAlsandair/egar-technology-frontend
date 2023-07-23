@@ -11,6 +11,7 @@
         <th scope="col">Manufacturing Year</th>
         <th scope="col">Has Trailer</th>
         <th scope="col">Vehicle Type</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -23,7 +24,12 @@
         <td>{{ vehicle.yearOfManufacture }}</td>
         <td>{{ vehicle.hasTrailer ? 'Yes' : 'No' }}</td>
         <td>{{ vehicle.vehicleType }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="updateVehicle(vehicle.id)">Update</button>
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
+<button class="btn btn-secondary" (click)="create()">Create</button>
+
